@@ -54,7 +54,7 @@ jobs:
       - name: Deploy to hosting
         run: |
           lftp -u "$USER","$PASSWORD" $HOST << EOF
-            ssl:verify-certificate false
+            set ssl:verify-certificate false
             mirror -e -R ./dist /public_html
             exit
           EOF
