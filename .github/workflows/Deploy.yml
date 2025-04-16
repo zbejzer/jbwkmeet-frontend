@@ -55,7 +55,7 @@ jobs:
         run: |
           lftp -u "$USER","$PASSWORD" $HOST << EOF
             set ssl:verify-certificate false
-            mirror -e -R ./dist /public_html
+            mirror -e -R ./dist /
             exit
           EOF
         env:
