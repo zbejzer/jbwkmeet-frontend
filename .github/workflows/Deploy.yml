@@ -59,7 +59,7 @@ jobs:
             set ssl:verify-certificate false
             set ftp:list-options -a
             open  -u "$USER","$PASSWORD" $HOST
-            mirror -vv --transfer-all -e -R ./dist
+            mirror -vv --transfer-all -e -R ./dist /
             exit
           EOF
         env:
