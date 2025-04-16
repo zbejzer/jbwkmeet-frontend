@@ -53,10 +53,12 @@ jobs:
 
       - name: Deploy to hosting
         run: |
-          lftp -u "$USER","$PASSWORD" $HOST << EOF
+          lftp << EOF
+            set ftp:ssl-force true
             set ssl:verify-certificate false
             set ftp:list-options -a
-            mirror -e -R ./dist /
+            open  -u "$USER","$PASSWORD" $HOST
+            mirror -vv --transfer-all -e -R ./dist /
             exit
           EOF
         env:
