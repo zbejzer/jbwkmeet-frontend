@@ -55,6 +55,7 @@ jobs:
         run: |
           lftp -u "$USER","$PASSWORD" $HOST << EOF
             set ssl:verify-certificate false
+            set ftp:list-options -a
             mirror -e -R ./dist /
             exit
           EOF
