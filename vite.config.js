@@ -1,9 +1,14 @@
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import * as sass from 'sass-embedded'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
 export default defineConfig({
+    root: resolve(__dirname, 'src'),
     build: {
-        outDir: './dist',
+        outDir: 'dist',
     },
     css: {
         preprocessorOptions: {
