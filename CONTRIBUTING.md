@@ -10,7 +10,7 @@ This project uses Feature Branch Workflow , with each feature branch following t
 
 - `feature/*`: Feature or feature set
 - `bugfix/*`: Resolves an issue
-- `refacor/*`: Replaces functionality with equivalent one using diffrent technology
+- `refactor/*`: Replaces functionality with equivalent one using different technology
 
 2. Use slash `/` as segment separators
 
