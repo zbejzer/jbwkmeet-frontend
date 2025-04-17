@@ -1,69 +1,69 @@
 name: Deploy
 
 on:
-  workflow_dispatch:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    workflow_dispatch:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
+    build:
+        name: Build
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build project
-        run: npm run build
+            - name: Build project
+              run: npm run build
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v4
-        with:
-          name: production-files
-          include-hidden-files: true
-          path: ./dist
+            - name: Upload production-ready build files
+              uses: actions/upload-artifact@v4
+              with:
+                  name: production-files
+                  include-hidden-files: true
+                  path: ./dist
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    deploy:
+        name: Deploy
+        needs: build
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: production-files
-          path: ./dist
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: production-files
+                  path: ./dist
 
-      - name: Install tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install lftp
+            - name: Install tools
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install lftp
 
-      - name: Deploy to hosting
-        run: |
-          lftp << EOF
-            set ftp:ssl-force true
-            set ssl:verify-certificate false
-            set ftp:list-options -a
-            open  -u "$USER","$PASSWORD" $HOST
-            mirror -vv --transfer-all -e -R ./dist /
-            exit
-          EOF
-        env:
-          USER: ${{ secrets.FTP_USERNAME }}
-          PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          HOST: ${{ secrets.FTP_HOST }}
-          PORT: ${{ secrets.FTP_PORT }}
+            - name: Deploy to hosting
+              run: |
+                  lftp << EOF
+                    set ftp:ssl-force true
+                    set ssl:verify-certificate false
+                    set ftp:list-options -a
+                    open  -u "$USER","$PASSWORD" $HOST
+                    mirror -vv --transfer-all -e -R ./dist /
+                    exit
+                  EOF
+              env:
+                  USER: ${{ secrets.FTP_USERNAME }}
+                  PASSWORD: ${{ secrets.FTP_PASSWORD }}
+                  HOST: ${{ secrets.FTP_HOST }}
+                  PORT: ${{ secrets.FTP_PORT }}
