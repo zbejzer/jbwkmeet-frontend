@@ -6,7 +6,13 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
-        silenceDeprecations: ["import", "color-functions", "global-builtin"],
+        silenceDeprecations: [
+          "import",
+          "mixed-decls",
+          "color-functions",
+          "global-builtin",
+          "legacy-js-api",
+        ],
         importers: [new sass.NodePackageImporter()],
       },
     },
