@@ -14,7 +14,7 @@ This project uses Feature Branch Workflow , with each feature branch following t
 
 2. Use slash `/` as segment separators
 
-3. Use issue ID or _no-ref_ as a second part of a branch name
+3. Use issue ID or `_no-ref_` as a second part of a branch name
 
 4. End with a short description in kebab-case which sums up the purpose of this specific branch
 
