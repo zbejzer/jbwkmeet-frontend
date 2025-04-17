@@ -34,6 +34,6 @@ export default defineConfig([
         language: 'css/css',
         extends: ['css/recommended'],
     },
-    globalIgnores(['/**/node_modules/']),
+    globalIgnores(['/**/node_modules/', 'dist/', 'package-lock.json']),
     eslintConfigPrettier,
 ])
