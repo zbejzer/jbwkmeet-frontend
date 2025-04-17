@@ -61,13 +61,17 @@ Must be one of the following:
 
 # Style Guide
 
+## Folder Structure
+
+Follow [structure proposed by Mozilla](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files#what_structure_should_a_website_have)
+
 ## HTML/CSS
 
-[Follow Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
+Follow [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
 ## JavaScript
 
-[Follow Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+Follow [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 
 ## Script Names
 
