@@ -31,25 +31,27 @@ $font-family-monospace:
     SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
 
-$grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    wsvga: 1024px,
-    xl: 1200px,
-    fwxga: 1366px,
-    xxl: 1400px,
-    fhd: 1920px,
-    wqhd: 2560px,
-    uhd: 3840px,
-);
-
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/variables-dark';
 
 // 4. Include any default map overrides here
+$grid-breakpoints: map-merge(
+    $grid-breakpoints,
+    (
+        wsvga: 1024px,
+        fwxga: 1366px,
+        fhd: 1920px,
+        wqhd: 2560px,
+        uhd: 3840px,
+    )
+);
+$aspect-ratios: map-merge(
+    $aspect-ratios,
+    (
+        '32x9': calc(9 / 32 * 100%),
+    )
+);
 
 // 5. Include remainder of required parts
 @import 'bootstrap/scss/maps';
