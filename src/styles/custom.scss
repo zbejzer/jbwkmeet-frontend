@@ -51,22 +51,6 @@ body {
     }
 }
 
-.carousel-card {
-    border-radius: var(--bs-border-radius-xxl);
-}
-
-@include media-breakpoint-up(sm) {
-    .carousel-card {
-        border-radius: var(--bs-border-radius-xxl);
-    }
-}
-
-@include media-breakpoint-up(md) {
-    .carousel-card {
-        border-radius: var(--bs-border-radius-xxl);
-    }
-}
-
 .narrow-text-overlay {
     margin-left: 4rem;
     margin-right: 4rem;
