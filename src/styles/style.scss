@@ -94,6 +94,7 @@ $grid-breakpoints: (
 
 // 8. Add additional custom code here
 @import 'custom.scss';
+@import 'embla.scss';
 
 .btn-primary {
     --bs-btn-color: var(--bs-white);

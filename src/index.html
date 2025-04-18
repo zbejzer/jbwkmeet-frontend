@@ -87,31 +87,46 @@
                 </h1>
                 <div
                     class="container bg-secondary rounded-5 my-5 py-4 py-sm-3 py-md-5"
+                    id="photos-carousel"
                 >
                     <div class="d-flex">
-                        <div class="ratio ratio-1x1 mx-2">
-                            <img
-                                src="images/carousel-1.png"
-                                class="h-100 object-fit-cover carousel-card ratio d-block"
-                            />
+                        <div
+                            class="d-flex align-items-center embla__button--prev"
+                        >
+                            <i class="fs-1 mx-2 bi bi-chevron-left"></i>
                         </div>
-                        <div class="ratio ratio-1x1 mx-2">
-                            <img
-                                src="images/carousel-2.png"
-                                class="h-100 object-fit-cover carousel-card ratio d-block"
-                            />
+                        <div class="w-100 embla__viewport">
+                            <div class="embla__container">
+                                <div class="embla__slide ratio ratio-1x1">
+                                    <img
+                                        src="images/carousel-1.png"
+                                        class="h-100 object-fit-cover rounded-5 ratio d-block"
+                                    />
+                                </div>
+                                <div class="embla__slide ratio ratio-1x1">
+                                    <img
+                                        src="images/carousel-2.png"
+                                        class="h-100 object-fit-cover rounded-5 ratio d-block"
+                                    />
+                                </div>
+                                <div class="embla__slide ratio ratio-1x1">
+                                    <img
+                                        src="images/carousel-3.png"
+                                        class="h-100 object-fit-cover rounded-5 d-block"
+                                    />
+                                </div>
+                                <div class="embla__slide ratio ratio-1x1">
+                                    <img
+                                        src="images/carousel-4.png"
+                                        class="h-100 object-fit-cover rounded-5 d-block"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-none d-sm-block ratio ratio-1x1 mx-2">
-                            <img
-                                src="images/carousel-3.png"
-                                class="h-100 object-fit-cover carousel-card d-block"
-                            />
-                        </div>
-                        <div class="d-none d-sm-block ratio ratio-1x1 mx-2">
-                            <img
-                                src="images/carousel-4.png"
-                                class="h-100 object-fit-cover carousel-card d-block"
-                            />
+                        <div
+                            class="d-flex align-items-center embla__button--next"
+                        >
+                            <i class="fs-1 mx-2 bi bi-chevron-right"></i>
                         </div>
                     </div>
                 </div>
