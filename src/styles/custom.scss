@@ -22,6 +22,12 @@ body {
 
 @include media-breakpoint-up(sm) {
     .img-header {
+        height: 2em;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .img-header {
         height: 1.5em;
     }
 }
@@ -32,7 +38,13 @@ body {
 
 @include media-breakpoint-up(sm) {
     .img-scaling {
-        height: auto;
+        height: 40vw;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .img-scaling {
+        height: 30vw;
     }
 }
 
