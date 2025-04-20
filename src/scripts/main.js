@@ -8,7 +8,7 @@ import { addPrevNextBtnsClickHandlers } from './EmblaCarouselArrowButtons'
 import { createCarouselSlide } from './carouselImagesLoader'
 
 const carouselImages = Object.values(
-    import.meta.glob('/images/carousel/*.{png,jpg,jpeg,PNG,JPEG}', {
+    import.meta.glob('/images/carousel/*.{png,jpg,jpeg,webp,PNG,JPEG,WEBP}', {
         eager: true,
         query: '?url',
         import: 'default',
