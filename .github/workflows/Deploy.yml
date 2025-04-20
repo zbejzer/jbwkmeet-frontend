@@ -90,8 +90,10 @@ jobs:
                     set ftp:ssl-force true
                     set ssl:verify-certificate false
                     set ftp:list-options -a
+                    set mirror:parallel-directories true
+                    set mirror:parallel-transfer-count 5
                     open  -u "$USER","$PASSWORD" $HOST
-                    mirror -vv --transfer-all -e -R ./dist /
+                    mirror -R -vv --transfer-all -e -P5 ./dist /
                     exit
                   EOF
               env:
