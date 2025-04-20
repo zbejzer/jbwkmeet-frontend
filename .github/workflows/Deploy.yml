@@ -47,10 +47,42 @@ jobs:
                   name: production-files
                   path: ./dist
 
-            - name: Install tools
+            - name: Get tools version
+              id: tools
               run: |
                   sudo apt-get update
-                  sudo apt-get install lftp
+                  sudo apt-cache show lftp | grep MD5sum | cut -d ' ' -f2 | echo "LFTP_MD5=$(cat)" >> "$GITHUB_OUTPUT"
+                  sudo apt-cache show lftp | grep Filename | cut -d ' ' -f2 | cut -d '/' -f5 | echo "LFTP_FILE=$(cat)" >> "$GITHUB_OUTPUT"
+
+            - name: Cache tools
+              id: cache-tools
+              uses: actions/cache/restore@v4
+              env:
+                  LFTP_MD5: ${{ steps.tools.outputs.LFTP_MD5 }}
+                  LFTP_FILE: ${{ steps.tools.outputs.LFTP_FILE }}
+              with:
+                  path: /var/cache/apt/archives/${{ env.LFTP_FILE }}
+                  key: ${{ runner.os }}-LFTP-${{ env.LFTP_MD5 }}
+
+            - name: Install tools
+              run: sudo apt-get install -y lftp
+
+            - name: Get installed tools version
+              if: steps.cache-tools.outputs.cache-hit != 'true'
+              id: installed-tools
+              run: |
+                  ls /var/cache/apt/archives | grep lftp | head -1 | (echo -n /var/cache/apt/archives/ && cat) | md5sum $(cat) | cut -d ' ' -f1 | echo "LFTP_MD5=$(cat)" >> "$GITHUB_OUTPUT"
+                  ls /var/cache/apt/archives | grep lftp | head -1 | cut -d ' ' -f1 | echo "LFTP_FILE=$(cat)" >> "$GITHUB_OUTPUT"
+
+            - name: Save installed tools
+              if: steps.cache-tools.outputs.cache-hit != 'true'
+              uses: actions/cache/save@v4
+              env:
+                  LFTP_MD5: ${{ steps.installed-tools.outputs.LFTP_MD5 }}
+                  LFTP_FILE: ${{ steps.installed-tools.outputs.LFTP_FILE }}
+              with:
+                  path: /var/cache/apt/archives/${{ env.LFTP_FILE }}
+                  key: ${{ runner.os }}-LFTP-${{ env.LFTP_MD5 }}
 
             - name: Deploy to hosting
               run: |
