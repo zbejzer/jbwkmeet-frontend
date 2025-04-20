@@ -7,26 +7,13 @@ import '../styles/style.scss'
 import { addPrevNextBtnsClickHandlers } from './EmblaCarouselArrowButtons'
 import { createCarouselSlide } from './carouselImagesLoader'
 
-// Slides generation
-
-const carouselImagesSrc = 'images/carousel/'
-
-const carouselImages = [
-    '_MG_2101.jpg',
-    '_MG_2105.jpg',
-    '_MG_2127.jpg',
-    '_MG_2131.jpg',
-    '_MG_2162.jpg',
-    '_MG_2170.jpg',
-    '_MG_2199.jpg',
-    '_MG_2231.jpg',
-    '_MG_2232.jpg',
-    '_MG_2235.jpg',
-    '_MG_2236.jpg',
-    '_MG_2239.jpg',
-    '_MG_2332.jpg',
-    '_MG_2390.jpg',
-]
+const carouselImages = Object.values(
+    import.meta.glob('/images/carousel/*.{png,jpg,jpeg,PNG,JPEG}', {
+        eager: true,
+        query: '?url',
+        import: 'default',
+    })
+)
 
 // Embla carousel
 
@@ -42,11 +29,9 @@ const containerNode = emblaNode.querySelector('.embla__container')
 
 const slideTemplate = document.querySelector('#slide-template')
 
-carouselImages
-    .map((str) => carouselImagesSrc.concat(str))
-    .forEach((image) => {
-        containerNode.appendChild(createCarouselSlide(slideTemplate, image))
-    })
+carouselImages.forEach((image) => {
+    containerNode.appendChild(createCarouselSlide(slideTemplate, image))
+})
 
 const emblaApi = EmblaCarousel(viewportNode, emblaOptions)
 
