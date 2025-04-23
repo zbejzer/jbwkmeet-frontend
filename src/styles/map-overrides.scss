@@ -1,0 +1,17 @@
+$grid-breakpoints: map-merge(
+    $grid-breakpoints,
+    (
+        wsvga: 1024px,
+        fwxga: 1366px,
+        fhd: 1920px,
+        wqhd: 2560px,
+        uhd: 3840px,
+    )
+);
+
+$aspect-ratios: map-merge(
+    $aspect-ratios,
+    (
+        '32x9': calc(9 / 32 * 100%),
+    )
+);
