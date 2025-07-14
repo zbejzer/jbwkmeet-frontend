@@ -1,0 +1,106 @@
+name: Deploy
+
+on:
+    workflow_dispatch:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build project
+              run: npm run build
+
+            - name: Upload production-ready build files
+              uses: actions/upload-artifact@v4
+              with:
+                  name: production-files
+                  include-hidden-files: true
+                  path: ./dist
+
+    deploy:
+        name: Deploy
+        needs: build
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/main'
+
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: production-files
+                  path: ./dist
+
+            - name: Grant tar root ownership
+              run: sudo chown root /bin/tar && sudo chmod u+s /bin/tar
+
+            - name: Get tools version
+              id: tools
+              run: |
+                  sudo apt-get update
+                  sudo apt-cache show lftp | grep MD5sum | cut -d ' ' -f2 | echo "LFTP_MD5=$(cat)" >> "$GITHUB_OUTPUT"
+                  sudo apt-cache show lftp | grep Filename | cut -d ' ' -f2 | cut -d '/' -f5 | echo "LFTP_FILE=$(cat)" >> "$GITHUB_OUTPUT"
+
+            - name: Cache tools
+              id: cache-tools
+              uses: actions/cache/restore@v4
+              env:
+                  LFTP_MD5: ${{ steps.tools.outputs.LFTP_MD5 }}
+                  LFTP_FILE: ${{ steps.tools.outputs.LFTP_FILE }}
+              with:
+                  path: /var/cache/apt/archives/${{ env.LFTP_FILE }}
+                  key: ${{ runner.os }}-LFTP-${{ env.LFTP_MD5 }}
+
+            - name: Install tools
+              run: sudo apt-get install -y lftp
+
+            - name: Get installed tools version
+              if: steps.cache-tools.outputs.cache-hit != 'true'
+              id: installed-tools
+              run: |
+                  ls /var/cache/apt/archives | grep lftp | head -1 | (echo -n /var/cache/apt/archives/ && cat) | md5sum $(cat) | cut -d ' ' -f1 | echo "LFTP_MD5=$(cat)" >> "$GITHUB_OUTPUT"
+                  ls /var/cache/apt/archives | grep lftp | head -1 | cut -d ' ' -f1 | echo "LFTP_FILE=$(cat)" >> "$GITHUB_OUTPUT"
+
+            - name: Save installed tools
+              if: steps.cache-tools.outputs.cache-hit != 'true'
+              uses: actions/cache/save@v4
+              env:
+                  LFTP_MD5: ${{ steps.installed-tools.outputs.LFTP_MD5 }}
+                  LFTP_FILE: ${{ steps.installed-tools.outputs.LFTP_FILE }}
+              with:
+                  path: /var/cache/apt/archives/${{ env.LFTP_FILE }}
+                  key: ${{ runner.os }}-LFTP-${{ env.LFTP_MD5 }}
+
+            - name: Deploy to hosting
+              run: |
+                  lftp << EOF
+                    set ftp:ssl-force true
+                    set ssl:verify-certificate false
+                    set ftp:list-options -a
+                    set mirror:parallel-directories true
+                    set mirror:parallel-transfer-count 5
+                    open  -u "$USER","$PASSWORD" $HOST
+                    mirror -R -vv --transfer-all -e -P5 ./dist /
+                    exit
+                  EOF
+              env:
+                  USER: ${{ secrets.FTP_USERNAME }}
+                  PASSWORD: ${{ secrets.FTP_PASSWORD }}
+                  HOST: ${{ secrets.FTP_HOST }}
+                  PORT: ${{ secrets.FTP_PORT }}
