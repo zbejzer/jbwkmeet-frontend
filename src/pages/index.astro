@@ -1,17 +1,251 @@
 ---
-import '@styles/global.css'
+import { Image } from 'astro:assets'
+
+import MainLayout from '@layouts/MainLayout.astro'
+
+import bgPic1 from '@assets/index/bg-pic-1.webp'
+import bgPic2 from '@assets/index/bg-pic-2.webp'
+import bgPic3 from '@assets/index/bg-pic-3.webp'
+import bgPic4 from '@assets/index/bg-pic-4.webp'
+import pixelHeaven from '@assets/index/pixelheaven.png'
+
+import darkProjectLogo from '@assets/index/logo-dark-project.svg'
+import envyTechLogo from '@assets/index/logo-envy-tech.webp'
+import genesisLogo from '@assets/index/logo-genesis.webp'
+import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="sitemap" href="/sitemap-index.xml" />
-        <title>Astro</title>
-    </head>
-    <body>
-        <h1>Astro</h1>
-    </body>
-</html>
+<MainLayout>
+    <section class="bg-secondary">
+        <Image src={bgPic1} alt="" class="object-fit-cover img-baner w-100" />
+        <h1 class="bg-primary fs-4 m-0 py-4 text-center">O co tutaj chodzi?</h1>
+        <div
+            class="col-md-8 col-xl-6 col-xxl-5 text-sm-start container py-5 text-center"
+        >
+            Od kilku lat organizujemy spotkania dla hobbystów, początkowo
+            spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
+            wiekszych spotkań. Chcemy dać możliwość społeczności na spotkanie
+            się i spędzenie miło czasu, przy okazji organizując ciekawe konkursy
+            dla urozmaicenia wydarzenia!
+        </div>
+    </section>
+    <section class="bg-secondary position-relative">
+        <div
+            class="col-md-6 bg-secondary position-relative z-1 col-12 h-100"
+            style="--bs-bg-opacity: 0.85"
+        >
+            <div
+                class="d-flex flex-column align-items-center justify-content-center py-5 text-center"
+                style="min-height: 25vw"
+            >
+                <h1 class="fs-4 my-3">Gdzie widzimy się w tym roku?</h1>
+                <p class="col-md-8 col-10 my-3">
+                    W tym roku znowu spotkamy się w Warszawie, planujemy dużo
+                    większą salę, wiecej miejsca wystawowego, ciekawe atrakcje
+                    oraz konkursy z nagrodami! Zapraszamy serdecznie wszystkich,
+                    nawet tych którzy nie mają wiekszej wiedzy klawiaturowej na
+                    fajne spędzenie czasu i podzielenie się zajawką!
+                </p>
+            </div>
+        </div>
+        <Image
+            src={bgPic2}
+            alt=""
+            class="object-fit-cover position-absolute translate-middle start-50 top-50 h-100 w-100"
+        />
+    </section>
+    <section>
+        <div style="background-color: #83385f;">
+            <h1 class="fs-4 m-0 py-4 text-center">Pixel Heaven Forward 2025</h1>
+        </div>
+        <div class="position-relative">
+            <Image src={pixelHeaven} alt="" class="img-fluid w-100" />
+            <div class="bg-secondary">
+                <div
+                    class="col-md-8 col-xl-6 col-xxl-5 text-sm-start container py-5 text-center"
+                >
+                    <div
+                        class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                        <p class="mb-3">
+                            Poza nadchodzącym Meetem w tym roku można nas
+                            znaleźć również na Pixel Heaven Forward 2025. Oprócz
+                            panelu ShiftHappens na głównej scenie pierwszego
+                            dnia festiwalu, mamy do dyspozycji również część
+                            sali w której pokażemy wycinek naszych kolekcji.
+                        </p>
+                        <a
+                            href="https://pixelheavenfest.com/"
+                            role="button"
+                            target="_blank"
+                            class="btn btn-lg mt-3"
+                            style="background-color: #83385f;"
+                        >
+                            Strona Pixel Heaven Forward
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h1 class="bg-primary fs-4 m-0 py-4 text-center">
+            Zobacz jak spędziliśmy czas ostatnio!
+        </h1>
+        <div
+            class="g-0 d-flex bg-secondary rounded-5 py-sm-3 py-md-5 container my-5 py-4"
+            id="photos-carousel"
+        >
+            <div class="d-flex align-items-center embla__button--prev">
+                <i class="fs-1 bi bi-chevron-left mx-2"></i>
+            </div>
+            <div class="embla__viewport rounded-5 w-100 overflow-hidden">
+                <div class="row embla__container flex-nowrap"></div>
+            </div>
+            <div class="d-flex align-items-center embla__button--next">
+                <i class="fs-1 bi bi-chevron-right mx-2"></i>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="bg-secondary">
+            <Image src={bgPic3} alt="" class="img-fluid mt-md-5 mt-3 w-100" />
+            <h1 class="fs-4 m-0 py-4 text-center">Partnerzy JBWK Meet 2024</h1>
+        </div>
+        <div class="bg-secondary rounded-5 p-sm-3 p-md-5 container my-5 p-4">
+            <div class="row align-items-center g-3 g-sm-4 g-md-5">
+                <div class="col-sm-3 col-6">
+                    <div class="ratio ratio-21x9">
+                        <Image
+                            src={envyTechLogo}
+                            alt="Logo Envy Tech"
+                            class="d-block object-fit-contain"
+                        />
+                    </div>
+                </div>
+                <div class="col-sm-3 col-6">
+                    <div class="ratio ratio-21x9">
+                        <Image
+                            src={genesisLogo}
+                            alt="Logo Genesis"
+                            class="d-block object-fit-contain ratio ratio-32x9"
+                        />
+                    </div>
+                </div>
+                <div class="col-sm-3 col-6">
+                    <div class="ratio ratio-21x9">
+                        <Image
+                            src={darkProjectLogo}
+                            alt="Logo Dark Project"
+                            class="d-block object-fit-contain ratio ratio-32x9"
+                        />
+                    </div>
+                </div>
+                <div class="col-sm-3 col-6">
+                    <div class="ratio ratio-21x9">
+                        <Image
+                            src={typebuildersLogo}
+                            alt="Logo Typebuilders"
+                            class="d-block object-fit-contain ratio ratio-32x9"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h1 class="bg-primary fs-4 m-0 py-4 text-center">Grupa na Facebooku</h1>
+        <div class="position-relative">
+            <div class="row justify-content-end g-0">
+                <div
+                    class="col-md-6 bg-secondary align-self-end position-relative z-1 col-12 h-100"
+                    style="--bs-bg-opacity: 0.85"
+                >
+                    <div
+                        class="d-flex flex-column align-items-center justify-content-center py-5 text-center"
+                        style="min-height: 25vw"
+                    >
+                        <p class="col-md-8 col-10 my-3">
+                            Chciałbyś dowiedzieć się wiecej na temat klawiatur?
+                            A może chciałbyś pochwalić się swoim buildem?
+                            Znajdziesz tam informację o przyszłych wydarzeniach!
+                        </p>
+                        <a
+                            href="https://www.facebook.com/groups/266901557998281/"
+                            role="button"
+                            target="_blank"
+                            class="btn btn-lg btn-primary my-3"
+                        >
+                            Dołącz do naszej grupy na facebooku!
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <Image
+                src={bgPic4}
+                alt=""
+                class="object-fit-cover position-absolute translate-middle start-50 top-50 h-100 w-100"
+            />
+        </div>
+    </section>
+    <section class="bg-secondary">
+        <div class="d-flex justify-content-center container text-center">
+            <div class="my-5">
+                <div class="row align-items-center">
+                    <div class="col-md fs-5 py-3">
+                        Więcej zdjęć na naszym instagramie!
+                    </div>
+
+                    <div
+                        class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
+                    >
+                        <a
+                            href="https://www.instagram.com/jak_bedzie_w_klawiaturach/"
+                            target="_blank"
+                            class="d-flex align-items-center text-body"
+                        >
+                            <i class="bi bi-instagram fs-2 me-3"></i>
+                            <span>@jak_bedzie_w_klawiaturkach</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md fs-5 py-3">
+                        Informacje odnośnie meetów znajdziesz na naszym
+                        discordzie!
+                    </div>
+                    <div
+                        class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
+                    >
+                        <a
+                            href="https://discord.com/invite/D5MyzMXqAG"
+                            target="_blank"
+                            class="d-flex align-items-center text-body"
+                        >
+                            <i class="bi bi-discord fs-2 me-3"></i>
+                            <span>Jak będzie w klawiaturkach?</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md fs-5 py-3">
+                        Masz pytania? Chcesz nawiązać współpracę? Napisz do nas
+                        na maila.
+                    </div>
+                    <div
+                        class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
+                    >
+                        <a
+                            href="mailto:jakbedziewklawiaturach@gmail.com"
+                            target="_blank"
+                            class="d-flex align-items-center text-body"
+                        >
+                            <i class="bi bi-envelope fs-2 me-3"></i>
+                            <span>jakbedziewklawiaturach@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
