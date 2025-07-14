@@ -1,1 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+    --font-sans:
+        'Jockey One', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-*: initial;
+    --color-gray-dark: oklch(0.2134 0 0);
+    --color-gray-light: oklch(0.3829 0 0);
+    --color-red: oklch(0.6223 0.2162 26.67);
+}
+
+:root {
+    color-scheme: dark;
+}

@@ -4,13 +4,10 @@ import { Image } from 'astro:assets'
 import jbwkLogo from '@assets/jbwk-logo.svg'
 ---
 
-<header
-    class="bg-secondary fs-1 position-absolute z-3 w-100"
-    style="--bs-bg-opacity: 0.85"
->
+<header class="bg-gray-dark/85 absolute w-full">
     <Image
         src={jbwkLogo}
         alt="Logo JBWK"
-        class="d-block object-fit-contain img-header container mx-auto p-2"
+        class="block h-24 sm:h-20 md:h-16 mx-auto object-contain p-2"
     />
 </header>
