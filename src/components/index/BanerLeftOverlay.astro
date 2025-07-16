@@ -1,0 +1,17 @@
+---
+
+---
+
+<div class="relative">
+    <div class="bg-gray-dark/85 relative z-10 h-full w-full md:w-1/2">
+        <div class="flex items-center justify-center py-5 text-center">
+            <div>
+                <slot name="content" />
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute inset-0">
+        <slot name="image" class="h-full object-cover" />
+    </div>
+</div>

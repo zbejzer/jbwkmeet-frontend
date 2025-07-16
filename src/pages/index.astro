@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 
 import MainLayout from '@layouts/MainLayout.astro'
+import BanerLeftOverlay from '@components/index/BanerLeftOverlay.astro'
 
 import bgPic1 from '@assets/index/bg-pic-1.webp'
 import bgPic2 from '@assets/index/bg-pic-2.webp'
@@ -20,7 +21,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
         <Image src={bgPic1} alt="" class="h-[33vh] w-full object-cover" />
         <h1 class="bg-red py-6 text-center text-2xl">O co tutaj chodzi?</h1>
         <div
-            class="mx-auto py-12 text-xl/9 text-center sm:text-start md:w-2/3 xl:w-1/2 2xl:w-5/12"
+            class="mx-auto py-12 text-center text-xl/9 sm:text-start md:w-2/3 xl:w-1/2 2xl:w-5/12"
         >
             Od kilku lat organizujemy spotkania dla hobbystów, początkowo
             spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
@@ -29,30 +30,20 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
             dla urozmaicenia wydarzenia!
         </div>
     </section>
-    <section class="bg-secondary position-relative">
-        <div
-            class="col-md-6 bg-secondary position-relative z-1 col-12 h-100"
-            style="--bs-bg-opacity: 0.85"
-        >
-            <div
-                class="d-flex flex-column align-items-center justify-content-center py-5 text-center"
-                style="min-height: 25vw"
-            >
-                <h1 class="fs-4 my-3">Gdzie widzimy się w tym roku?</h1>
-                <p class="col-md-8 col-10 my-3">
+    <section>
+        <BanerLeftOverlay>
+            <Fragment slot="content">
+                <h1 class="my-8 text-2xl">Gdzie widzimy się w tym roku?</h1>
+                <p class="mx-auto my-8 w-5/6 text-xl/8 md:w-2/3">
                     W tym roku znowu spotkamy się w Warszawie, planujemy dużo
                     większą salę, wiecej miejsca wystawowego, ciekawe atrakcje
                     oraz konkursy z nagrodami! Zapraszamy serdecznie wszystkich,
                     nawet tych którzy nie mają wiekszej wiedzy klawiaturowej na
                     fajne spędzenie czasu i podzielenie się zajawką!
                 </p>
-            </div>
-        </div>
-        <Image
-            src={bgPic2}
-            alt=""
-            class="object-fit-cover position-absolute translate-middle start-50 top-50 h-100 w-100"
-        />
+            </Fragment>
+            <Image slot="image" src={bgPic2} alt="" />
+        </BanerLeftOverlay>
     </section>
     <section>
         <div style="background-color: #83385f;">
