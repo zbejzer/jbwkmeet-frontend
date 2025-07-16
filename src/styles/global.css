@@ -9,6 +9,7 @@
     --color-gray-dark: oklch(0.2134 0 0);
     --color-gray-light: oklch(0.3829 0 0);
     --color-red: oklch(0.6223 0.2162 26.67);
+    --color-pixel-heaven: oklch(0.4541 0.1131 350.15)
 }
 
 :root {
