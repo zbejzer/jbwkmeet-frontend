@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets'
 
 import MainLayout from '@layouts/MainLayout.astro'
-import BanerLeftOverlay from '@components/index/BanerLeftOverlay.astro'
+import BanerOverlay from '@components/BanerOverlay.astro'
+import SectionSeparator from '@components/SectionSeparator.astro'
 
 import bgPic1 from '@assets/index/bg-pic-1.webp'
 import bgPic2 from '@assets/index/bg-pic-2.webp'
@@ -19,19 +20,21 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
 <MainLayout>
     <section>
         <Image src={bgPic1} alt="" class="h-[33vh] w-full object-cover" />
-        <h1 class="bg-red py-6 text-center text-2xl">O co tutaj chodzi?</h1>
-        <p
-            class="mx-auto my-12 text-center text-xl/9 sm:text-start md:w-2/3 xl:w-1/2 2xl:w-5/12"
-        >
-            Od kilku lat organizujemy spotkania dla hobbystów, początkowo
-            spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
-            wiekszych spotkań. Chcemy dać możliwość społeczności na spotkanie
-            się i spędzenie miło czasu, przy okazji organizując ciekawe konkursy
-            dla urozmaicenia wydarzenia!
-        </p>
+        <SectionSeparator> O co tutaj chodzi? </SectionSeparator>
+        <div class="container mx-auto">
+            <p
+                class="mx-auto my-14 text-center sm:text-start md:w-2/3 xl:w-1/2"
+            >
+                Od kilku lat organizujemy spotkania dla hobbystów, początkowo
+                spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
+                wiekszych spotkań. Chcemy dać możliwość społeczności na
+                spotkanie się i spędzenie miło czasu, przy okazji organizując
+                ciekawe konkursy dla urozmaicenia wydarzenia!
+            </p>
+        </div>
     </section>
     <section>
-        <BanerLeftOverlay>
+        <BanerOverlay imageUrl={bgPic2}>
             <Fragment slot="content">
                 <h1 class="text-2xl">Gdzie widzimy się w tym roku?</h1>
                 <p class="w-5/6 md:w-2/3">
@@ -42,25 +45,17 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                     fajne spędzenie czasu i podzielenie się zajawką!
                 </p>
             </Fragment>
-            <Image
-                slot="image"
-                src={bgPic2}
-                alt=""
-                class="h-full object-cover"
-            />
-        </BanerLeftOverlay>
+        </BanerOverlay>
     </section>
     <section>
-        <h1 class="bg-pixel-heaven py-6 text-center text-2xl">
+        <SectionSeparator backgroundColor="bg-pixel-heaven">
             Pixel Heaven Forward 2025
-        </h1>
+        </SectionSeparator>
         <div class="relative">
             <Image src={pixelHeaven} alt="" class="w-full" />
-            <div class="flex flex-col items-center my-12 gap-6">
+            <div class="my-14 flex flex-col items-center gap-8">
                 <div class="md:w-2/3 xl:w-1/2 2xl:w-5/12">
-                    <p
-                        class="text-center text-xl/9 sm:text-start "
-                    >
+                    <p class="text-center text-xl/9 sm:text-start">
                         Poza nadchodzącym Meetem w tym roku można nas znaleźć
                         również na Pixel Heaven Forward 2025. Oprócz panelu
                         ShiftHappens na głównej scenie pierwszego dnia
@@ -68,7 +63,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                         której pokażemy wycinek naszych kolekcji.
                     </p>
                 </div>
-                <div >
+                <div>
                     <a href="https://pixelheavenfest.com/" target="_blank">
                         <div
                             class="bg-pixel-heaven rounded-lg px-4 py-2 text-center"
@@ -78,182 +73,82 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                     </a>
                 </div>
             </div>
-            <section>
-                <h1 class="bg-red fs-4 m-0 py-4 text-center">
-                    Zobacz jak spędziliśmy czas ostatnio!
-                </h1>
-                <div
-                    class="g-0 d-flex bg-secondary rounded-5 py-sm-3 py-md-5 container my-5 py-4"
-                    id="photos-carousel"
-                >
-                    <div class="d-flex align-items-center embla__button--prev">
-                        <i class="fs-1 bi bi-chevron-left mx-2"></i>
-                    </div>
-                    <div
-                        class="embla__viewport rounded-5 w-100 overflow-hidden"
-                    >
-                        <div class="row embla__container flex-nowrap"></div>
-                    </div>
-                    <div class="d-flex align-items-center embla__button--next">
-                        <i class="fs-1 bi bi-chevron-right mx-2"></i>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="bg-secondary">
-                    <Image
-                        src={bgPic3}
-                        alt=""
-                        class="img-fluid mt-md-5 mt-3 w-100"
-                    />
-                    <h1 class="fs-4 m-0 py-4 text-center">
-                        Partnerzy JBWK Meet 2024
-                    </h1>
-                </div>
-                <div
-                    class="bg-secondary rounded-5 p-sm-3 p-md-5 container my-5 p-4"
-                >
-                    <div class="row align-items-center g-3 g-sm-4 g-md-5">
-                        <div class="col-sm-3 col-6">
-                            <div class="ratio ratio-21x9">
-                                <Image
-                                    src={envyTechLogo}
-                                    alt="Logo Envy Tech"
-                                    class="d-block object-fit-contain"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="ratio ratio-21x9">
-                                <Image
-                                    src={genesisLogo}
-                                    alt="Logo Genesis"
-                                    class="d-block object-fit-contain ratio ratio-32x9"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="ratio ratio-21x9">
-                                <Image
-                                    src={darkProjectLogo}
-                                    alt="Logo Dark Project"
-                                    class="d-block object-fit-contain ratio ratio-32x9"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="ratio ratio-21x9">
-                                <Image
-                                    src={typebuildersLogo}
-                                    alt="Logo Typebuilders"
-                                    class="d-block object-fit-contain ratio ratio-32x9"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h1 class="bg-red fs-4 m-0 py-4 text-center">
-                    Grupa na Facebooku
-                </h1>
-                <div class="position-relative">
-                    <div class="row justify-content-end g-0">
-                        <div
-                            class="col-md-6 bg-secondary align-self-end position-relative z-1 col-12 h-100"
-                            style="--bs-bg-opacity: 0.85"
-                        >
-                            <div
-                                class="d-flex flex-column align-items-center justify-content-center py-5 text-center"
-                                style="min-height: 25vw"
-                            >
-                                <p class="col-md-8 col-10 my-3">
-                                    Chciałbyś dowiedzieć się wiecej na temat
-                                    klawiatur? A może chciałbyś pochwalić się
-                                    swoim buildem? Znajdziesz tam informację o
-                                    przyszłych wydarzeniach!
-                                </p>
-                                <a
-                                    href="https://www.facebook.com/groups/266901557998281/"
-                                    role="button"
-                                    target="_blank"
-                                    class="btn btn-lg btn-red my-3"
-                                >
-                                    Dołącz do naszej grupy na facebooku!
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <Image
-                        src={bgPic4}
-                        alt=""
-                        class="object-fit-cover position-absolute translate-middle start-50 top-50 h-100 w-100"
-                    />
-                </div>
-            </section>
-            <section class="bg-secondary">
-                <div
-                    class="d-flex justify-content-center container text-center"
-                >
-                    <div class="my-5">
-                        <div class="row align-items-center">
-                            <div class="col-md fs-5 py-3">
-                                Więcej zdjęć na naszym instagramie!
-                            </div>
-
-                            <div
-                                class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
-                            >
-                                <a
-                                    href="https://www.instagram.com/jak_bedzie_w_klawiaturach/"
-                                    target="_blank"
-                                    class="d-flex align-items-center text-body"
-                                >
-                                    <i class="bi bi-instagram fs-2 me-3"></i>
-                                    <span>@jak_bedzie_w_klawiaturkach</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-md fs-5 py-3">
-                                Informacje odnośnie meetów znajdziesz na naszym
-                                discordzie!
-                            </div>
-                            <div
-                                class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
-                            >
-                                <a
-                                    href="https://discord.com/invite/D5MyzMXqAG"
-                                    target="_blank"
-                                    class="d-flex align-items-center text-body"
-                                >
-                                    <i class="bi bi-discord fs-2 me-3"></i>
-                                    <span>Jak będzie w klawiaturkach?</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-md fs-5 py-3">
-                                Masz pytania? Chcesz nawiązać współpracę? Napisz
-                                do nas na maila.
-                            </div>
-                            <div
-                                class="col-md fs-5 d-flex align-items-center justify-content-center py-3"
-                            >
-                                <a
-                                    href="mailto:jakbedziewklawiaturach@gmail.com"
-                                    target="_blank"
-                                    class="d-flex align-items-center text-body"
-                                >
-                                    <i class="bi bi-envelope fs-2 me-3"></i>
-                                    <span>jakbedziewklawiaturach@gmail.com</span
-                                    >
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
-    </section></MainLayout
->
+    </section>
+    <!-- <section>
+        <SectionSeparator>
+            Zobacz jak spędziliśmy czas ostatnio!
+        </SectionSeparator>
+        <script src="@scripts/EmblaCarousel.js" />
+        <div
+            class="my-5 flex rounded-xl py-4 sm:py-3 md:py-5"
+            id="photos-carousel"
+        >
+            <div class="flex align-items-center embla__button--prev">
+                <i class="fs-1 bi bi-chevron-left mx-2"></i>
+            </div>
+            <div class="embla__viewport rounded-5xl w-100 overflow-hidden">
+                <div class="row embla__container flex-nowrap"></div>
+            </div>
+            <div class="flex align-items-center embla__button--next">
+                <i class="fs-1 bi bi-chevron-right mx-2"></i>
+            </div>
+        </div>
+    </section> -->
+    <section>
+        <Image src={bgPic3} alt="" class="w-full" />
+        <SectionSeparator> Partnerzy JBWK Meet 2024 </SectionSeparator>
+        <div class="bg-gray-light container mx-auto my-18 rounded-4xl">
+            <div
+                class="grid grid-cols-2 items-center gap-8 px-10 py-8 sm:grid-cols-4 sm:gap-12 md:gap-16"
+            >
+                <Image
+                    src={envyTechLogo}
+                    alt="Logo Envy Tech"
+                    class="block aspect-21/9 w-full object-contain"
+                />
+
+                <Image
+                    src={genesisLogo}
+                    alt="Logo Genesis"
+                    class="block aspect-21/9 w-full object-contain"
+                />
+
+                <Image
+                    src={darkProjectLogo}
+                    alt="Logo Dark Project"
+                    class="block aspect-21/9 w-full object-contain"
+                />
+
+                <Image
+                    src={typebuildersLogo}
+                    alt="Logo Typebuilders"
+                    class="block aspect-21/9 w-full object-contain"
+                />
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <SectionSeparator> Grupa na Facebooku </SectionSeparator>
+        <BanerOverlay imageUrl={bgPic4} align="justify-end">
+            <Fragment slot="content">
+                <p class="w-5/6 md:w-2/3">
+                    Chciałbyś dowiedzieć się wiecej na temat klawiatur? A może
+                    chciałbyś pochwalić się swoim buildem? Znajdziesz tam
+                    informację o przyszłych wydarzeniach!
+                </p>
+                <div>
+                    <a
+                        href="https://www.facebook.com/groups/266901557998281/"
+                        target="_blank"
+                    >
+                        <div class="bg-red rounded-lg px-4 py-2 text-center">
+                            Dołącz do naszej grupy na facebooku!
+                        </div>
+                    </a>
+                </div>
+            </Fragment>
+        </BanerOverlay>
+    </section>
+</MainLayout>

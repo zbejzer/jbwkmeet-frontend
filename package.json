@@ -11,8 +11,12 @@
     },
     "dependencies": {
         "@astrojs/sitemap": "^3.4.1",
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-brands-svg-icons": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
         "@tailwindcss/vite": "^4.1.11",
         "astro": "^5.11.0",
+        "embla-carousel": "^8.6.0",
         "tailwindcss": "^4.1.11"
     },
     "devDependencies": {

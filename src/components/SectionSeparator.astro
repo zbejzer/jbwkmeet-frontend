@@ -1,0 +1,11 @@
+---
+interface Props {
+    backgroundColor?: string
+}
+
+const { backgroundColor = "bg-red" } = Astro.props
+---
+
+<h1 class:list={["py-6 text-center text-2xl", backgroundColor]}>
+    <slot/>
+</h1>
