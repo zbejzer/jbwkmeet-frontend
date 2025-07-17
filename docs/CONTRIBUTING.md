@@ -1,10 +1,10 @@
 # Contributing to jbwkmeet-frontend
 
-# Branching strategy
+## Branching strategy
 
 This project uses Feature Branch Workflow , with each feature branch following the naming strategy below.
 
-## Branch Format
+### Branch Format
 
 1. Start branch name with category
 
@@ -57,24 +57,24 @@ Must be one of the following:
 - `refactor: rewrite button component in TypeScript`
 - `docs: write button documentation`
 
-# Style Guide
+## Style Guide
 
-## Folder Structure
+### Folder Structure
 
 Follow [structure proposed by Mozilla](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files#what_structure_should_a_website_have)
 
-## HTML/CSS
+### HTML/CSS
 
 Follow [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
-## JavaScript
+### JavaScript
 
 Follow [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 
-## Script Names
+### Script Names
 
 Follow the [ESLint convention](https://eslint.org/docs/latest/contribute/package-json-conventions#names). Npm script names MUST contain only lower case letters, : to separate parts, - to separate words, and + to separate file extensions. Each part name SHOULD be either a full English word (e.g. coverage not cov) or a well-known initialism in all lowercase (e.g. wasm).
 
-### Examples
+#### Examples
 
 - `sass-embedded:watch`
