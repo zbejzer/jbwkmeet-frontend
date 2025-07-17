@@ -2,7 +2,6 @@ import js from '@eslint/js'
 import globals from 'globals'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import css from '@eslint/css'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 
@@ -27,12 +26,6 @@ export default defineConfig([
         plugins: { markdown },
         language: 'markdown/gfm',
         extends: ['markdown/recommended'],
-    },
-    {
-        files: ['**/*.css'],
-        plugins: { css },
-        language: 'css/css',
-        extends: ['css/recommended'],
     },
     globalIgnores(['/**/node_modules/', 'dist/', 'package-lock.json']),
     eslintConfigPrettier,
