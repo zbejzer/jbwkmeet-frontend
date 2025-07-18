@@ -3,18 +3,17 @@ import { Image } from 'astro:assets'
 import { ImageMetadata } from 'astro'
 
 interface Props {
-    align?: string
     imageUrl: string | ImageMetadata
 }
 
-const { align = 'justify-start', imageUrl } = Astro.props
+const { imageUrl } = Astro.props
 ---
 
 <div class="relative">
-    <div class:list={['flex', 'h-full', 'w-full', align]}>
-        <div class="bg-gray-dark/85 relative z-10 h-full w-full md:w-1/2">
+    <div class="h-full w-full py-12">
+        <div class="bg-gray-dark/70 relative z-10 h-full w-full">
             <div
-                class="z-20 flex flex-col items-center justify-center gap-6 py-24 text-center"
+                class="z-20 flex flex-col items-center justify-center gap-6 py-18 text-center"
             >
                 <slot />
             </div>

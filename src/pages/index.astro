@@ -6,6 +6,7 @@ import Header from '@components/Header.astro'
 import BanerOverlay from '@components/BanerOverlay.astro'
 import SectionSeparator from '@components/SectionSeparator.astro'
 import TextContainer from '@components/TextContainer.astro'
+import Button from '@components/Button.astro'
 
 import bgPic1 from '@assets/index/bg-pic-1.webp'
 import bgPic2 from '@assets/index/bg-pic-2.webp'
@@ -48,9 +49,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                     informacji znajdziesz poniżej:
                 </p>
                 <a href="/meet-2025">
-                    <div class="bg-red rounded-lg px-6 py-3 text-center">
-                        Kliknij po więcej informacji!
-                    </div>
+                    <Button> Kliknij po więcej informacji! </Button>
                 </a>
             </Fragment>
         </BanerOverlay>
@@ -73,11 +72,9 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                 </div>
                 <div>
                     <a href="https://pixelheavenfest.com/" target="_blank">
-                        <div
-                            class="bg-pixel-heaven rounded-lg px-6 py-3 text-center"
-                        >
+                        <Button backgroundColor="bg-pixel-heaven">
                             Strona Pixel Heaven Forward
-                        </div>
+                        </Button>
                     </a>
                 </div>
             </div>
@@ -104,40 +101,6 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
         </div>
     </section> -->
     <section>
-        <Image src={bgPic3} alt="" class="w-full" />
-        <SectionSeparator> Partnerzy JBWK Meet 2024 </SectionSeparator>
-        <div class="bg-gray-light container mx-auto my-18 rounded-4xl">
-            <div
-                class="grid grid-cols-2 items-center gap-8 px-10 py-8 sm:grid-cols-4 sm:gap-12 md:gap-16"
-            >
-                <Image
-                    src={envyTechLogo}
-                    alt="Logo Envy Tech"
-                    class="block aspect-21/9 w-full object-contain"
-                />
-
-                <Image
-                    src={genesisLogo}
-                    alt="Logo Genesis"
-                    class="block aspect-21/9 w-full object-contain"
-                />
-
-                <Image
-                    src={darkProjectLogo}
-                    alt="Logo Dark Project"
-                    class="block aspect-21/9 w-full object-contain"
-                />
-
-                <Image
-                    src={typebuildersLogo}
-                    alt="Logo Typebuilders"
-                    class="block aspect-21/9 w-full object-contain"
-                />
-            </div>
-        </div>
-    </section>
-
-    <section>
         <SectionSeparator> Grupa na Facebooku </SectionSeparator>
         <BanerOverlay imageUrl={bgPic4} align="justify-end">
             <Fragment>
@@ -151,9 +114,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                         href="https://www.facebook.com/groups/266901557998281/"
                         target="_blank"
                     >
-                        <div class="bg-red rounded-lg px-6 py-3 text-center">
-                            Dołącz do naszej grupy na facebooku!
-                        </div>
+                        <Button> Dołącz do naszej grupy na facebooku! </Button>
                     </a>
                 </div>
             </Fragment>
