@@ -1,13 +1,14 @@
 ---
 import Head from '@components/Head.astro'
-import Header from '@components/Header.astro'
+
 import Footer from '@components/Footer.astro'
 ---
 
 <html lang="pl-PL">
     <Head />
-    <body class="bg-gray-dark text-xl/9 font-sans">
-        <Header />
+    <body
+        class="bg-gray-dark flex flex-col justify-between font-sans text-xl/9"
+    >
         <slot />
         <Footer />
     </body>

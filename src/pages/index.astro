@@ -2,8 +2,10 @@
 import { Image } from 'astro:assets'
 
 import MainLayout from '@layouts/MainLayout.astro'
+import Header from '@components/Header.astro'
 import BanerOverlay from '@components/BanerOverlay.astro'
 import SectionSeparator from '@components/SectionSeparator.astro'
+import TextContainer from '@components/TextContainer.astro'
 
 import bgPic1 from '@assets/index/bg-pic-1.webp'
 import bgPic2 from '@assets/index/bg-pic-2.webp'
@@ -18,32 +20,38 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
 ---
 
 <MainLayout>
+    <Header />
+    <Image
+        src={bgPic1}
+        alt=""
+        class="h-[33vh] w-full object-cover object-center"
+    />
     <section>
-        <Image src={bgPic1} alt="" class="h-[33vh] w-full object-cover" />
         <SectionSeparator> O co tutaj chodzi? </SectionSeparator>
-        <div class="container mx-auto">
-            <p
-                class="mx-auto my-14 text-center sm:text-start md:w-2/3 xl:w-1/2"
-            >
-                Od kilku lat organizujemy spotkania dla hobbystów, początkowo
-                spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
-                wiekszych spotkań. Chcemy dać możliwość społeczności na
-                spotkanie się i spędzenie miło czasu, przy okazji organizując
-                ciekawe konkursy dla urozmaicenia wydarzenia!
-            </p>
-        </div>
+        <TextContainer>
+            Od kilku lat organizujemy spotkania dla hobbystów, początkowo
+            spotykaliśmy się w gronie znajomych, lecz rozwinęło się to do
+            wiekszych spotkań. Chcemy dać możliwość społeczności na spotkanie
+            się i spędzenie miło czasu, przy okazji organizując ciekawe konkursy
+            dla urozmaicenia wydarzenia!
+        </TextContainer>
     </section>
     <section>
         <BanerOverlay imageUrl={bgPic2}>
-            <Fragment slot="content">
+            <Fragment>
                 <h1 class="text-2xl">Gdzie widzimy się w tym roku?</h1>
+                <h2 class="text-3xl">Warszawa - 23.08.2025</h2>
                 <p class="w-5/6 md:w-2/3">
-                    W tym roku znowu spotkamy się w Warszawie, planujemy dużo
-                    większą salę, wiecej miejsca wystawowego, ciekawe atrakcje
-                    oraz konkursy z nagrodami! Zapraszamy serdecznie wszystkich,
-                    nawet tych którzy nie mają wiekszej wiedzy klawiaturowej na
-                    fajne spędzenie czasu i podzielenie się zajawką!
+                    Już 23 sierpnia zapraszamy do Stolicy Polski, w tym roku
+                    lecimy z rozmachem! W związku z zeszłoroczną frekwencją
+                    zdecydowaliśmy się na dużo większą przestrzeń! Więcej
+                    informacji znajdziesz poniżej:
                 </p>
+                <a href="/meet-2025">
+                    <div class="bg-red rounded-lg px-6 py-3 text-center">
+                        Kliknij po więcej informacji!
+                    </div>
+                </a>
             </Fragment>
         </BanerOverlay>
     </section>
@@ -66,7 +74,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                 <div>
                     <a href="https://pixelheavenfest.com/" target="_blank">
                         <div
-                            class="bg-pixel-heaven rounded-lg px-4 py-2 text-center"
+                            class="bg-pixel-heaven rounded-lg px-6 py-3 text-center"
                         >
                             Strona Pixel Heaven Forward
                         </div>
@@ -132,7 +140,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
     <section>
         <SectionSeparator> Grupa na Facebooku </SectionSeparator>
         <BanerOverlay imageUrl={bgPic4} align="justify-end">
-            <Fragment slot="content">
+            <Fragment>
                 <p class="w-5/6 md:w-2/3">
                     Chciałbyś dowiedzieć się wiecej na temat klawiatur? A może
                     chciałbyś pochwalić się swoim buildem? Znajdziesz tam
@@ -143,7 +151,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
                         href="https://www.facebook.com/groups/266901557998281/"
                         target="_blank"
                     >
-                        <div class="bg-red rounded-lg px-4 py-2 text-center">
+                        <div class="bg-red rounded-lg px-6 py-3 text-center">
                             Dołącz do naszej grupy na facebooku!
                         </div>
                     </a>

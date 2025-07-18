@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets'
+
+import bgPic1 from '@assets/meet-2025/_MG_0782.jpg'
+import bgPic2 from '@assets/meet-2025/_MG_3398.jpg'
+import bgPic3 from '@assets/meet-2025/21cffa485c43d095ccfa4861e094052aa595d661.png'
+
+import MainLayout from '@layouts/MainLayout.astro'
+import HederMeet from '@components/HeaderMeet.astro'
+import BanerOverlay from '@components/BanerOverlay.astro'
+import SectionSeparator from '@components/SectionSeparator.astro'
+import TextContainer from '@components/TextContainer.astro'
+---
+
+<MainLayout>
+    <HederMeet />
+    <Image
+        src={bgPic1}
+        alt=""
+        class="max-h-[45vh] w-full object-cover object-center"
+    />
+    <section>
+        <SectionSeparator> Witamy Warszawo! </SectionSeparator>
+        <TextContainer>
+            Dokładnie tak jak rok temu znowu zobaczymy się w pięknej stolicy
+            Polski! W ankiecie feedbackowej zadecydowaliście, że Warszawa jest
+            miastem w którym najchętniej spotkalibyście się w tym roku. Dlatego
+            zgodnie z głosem ludu tak oto zapraszamy na kolejną edycje JBWK Meet
+            2025 - WARSZAWA!
+        </TextContainer>
+    </section>
+    <section>
+        <BanerOverlay imageUrl={bgPic2}>
+            <Fragment>
+                <h1 class="text-2xl">Co dla was przygotowaliśmy?</h1>
+                <p class="w-5/6 md:w-2/3">
+                    Duża sala oraz dużoo miejsca do wystawiania waszych
+                    klawiaturek! Wiemy, że miedzy nami są wariaci, którzy
+                    posiadają na prawdę dużo tego sprzętu. W tym roku nie
+                    musicie się niczego obawiać, miejsca starczy dla każdego!
+                </p>
+            </Fragment>
+        </BanerOverlay>
+    </section>
+    <section class="py-24">
+        <BanerOverlay imageUrl={bgPic3} align="justify-end">
+            <Fragment>
+                <h1 class="text-2xl">A Gdzie dokładnie?</h1>
+                <h2 class="text-3xl">Dom Kultury Kadr</h2>
+                <p class="w-5/6 md:w-2/3">
+                    Nasz tegoroczny meet odbędzie się w domu kultury kadr,
+                    bardzo ładne i nowoczesne miejsce, bardzo cieszymy się, że
+                    udało się zorganizować nasze wydarzenie akurat tam! Już w
+                    sierpniu sami zrozumiecie dlaczego to miejsce króluje nad
+                    poprzednimi!
+                </p>
+                <a
+                    href="https://maps.app.goo.gl/JkmxH4Di8U6ddGGF8"
+                    target="_blank"
+                >
+                    <div class="bg-red rounded-lg px-6 py-3 text-center">
+                        Jak dojechać?
+                    </div>
+                </a>
+            </Fragment>
+        </BanerOverlay>
+    </section>
+    <section>
+        <SectionSeparator> Często zadawane pytania (FAQ) </SectionSeparator>
+        <div class="bg-gray-light container mx-auto my-18 rounded-4xl">
+            <div
+                class="grid grid-cols-2 items-center gap-8 px-10 py-8 sm:grid-cols-4 sm:gap-12 md:gap-16"
+            >
+                <ol type="1">
+                    <li>Czy mogę uczestniczyć jeśli nie mam 18 lat</li>
+                    <li>Czy wstęp na meet jest płatny?</li>
+                    <li>W jakich godzinach można przyjść?</li>
+                    <li>Czy wymagana jest rejestracja?</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</MainLayout>

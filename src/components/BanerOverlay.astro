@@ -14,13 +14,13 @@ const { align = 'justify-start', imageUrl } = Astro.props
     <div class:list={['flex', 'h-full', 'w-full', align]}>
         <div class="bg-gray-dark/85 relative z-10 h-full w-full md:w-1/2">
             <div
-                class="flex min-h-120 flex-col items-center justify-center gap-6 py-20 text-center"
+                class="z-20 flex min-h-120 flex-col items-center justify-center gap-6 py-20 text-center"
             >
-                <slot name="content" />
+                <slot />
             </div>
         </div>
     </div>
     <div class="absolute inset-0">
-        <Image slot="image" src={imageUrl} alt="" class="h-full object-cover" />
+        <Image src={imageUrl} alt="" class="h-full w-full object-cover" />
     </div>
 </div>
