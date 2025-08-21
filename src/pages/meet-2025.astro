@@ -7,6 +7,16 @@ import bgPic3 from '@assets/meet-2025/21cffa485c43d095ccfa4861e094052aa595d661.p
 import bgPic4 from '@assets/meet-2025/98d6af6234f4a512c5cb185d3f18b0e9529fd29a.jpg'
 import bgPic5 from '@assets/meet-2025/9116804ee0d43db33ed2422d67a6eda99d5dc175.jpg'
 
+import envyTechLogo from '@assets/meet-2025/logo-envy-tech.webp'
+import genesisLogo from '@assets/meet-2025/logo-genesis.webp'
+import darkprojectLogo from '@assets/meet-2025/logo-DarkProjectNew.svg'
+import gloriousLogo from '@assets/meet-2025/logo-glorious.webp'
+import marvoLogo from '@assets/meet-2025/logo-marvo.png'
+import lamzuLogo from '@assets/meet-2025/logo-lamzu.png'
+import redragonLogo from '@assets/meet-2025/logo-redragon.webp'
+import keychronLogo from '@assets/meet-2025/logo-keychron.png'
+import mchoseLogo from '@assets/meet-2025/logo-mchose.png'
+
 import MainLayout from '@layouts/MainLayout.astro'
 import HederMeet from '@components/HeaderMeet.astro'
 import BanerOverlay from '@components/BanerOverlay.astro'
@@ -31,8 +41,8 @@ import RoundedContainer from '@components/RoundedContainer.astro'
                 Dokładnie tak jak rok temu znowu zobaczymy się w pięknej stolicy
                 Polski! W ankiecie feedbackowej zadecydowaliście, że Warszawa
                 jest miastem w którym najchętniej spotkalibyście się w tym roku.
-                Dlatego zgodnie z głosem ludu tak oto zapraszamy na kolejną
-                edycje JBWK Meet 2025 - Warszawa!
+                Dlatego zgodnie z głosem ludu zapraszamy już 23 sierpnia na
+                kolejną edycje JBWK Meet 2025 - Warszawa!
             </TextContainer>
         </div>
     </section>
@@ -93,7 +103,7 @@ import RoundedContainer from '@components/RoundedContainer.astro'
                     <p class="text-base">
                         Żeby wszystko przygotować na najwyższym poziomie,
                         wymagamy od uczestników wcześniejszej rejestracji. Można
-                        to zrobić do 21 sierpnia poprzez wypełnienie formularza
+                        to zrobić do 22 sierpnia poprzez wypełnienie formularza
                     </p>
                 </ol>
             </div>
@@ -120,51 +130,66 @@ import RoundedContainer from '@components/RoundedContainer.astro'
         <SectionSeparator> Partnerzy JBWK Meet 2025 </SectionSeparator>
         <RoundedContainer>
             <div
-                class="grid grid-cols-2 items-center gap-4 sm:grid-cols-4 sm:gap-6 md:gap-8"
+                class="flex flex-row flex-wrap items-center justify-evenly gap-x-4 gap-y-8 sm:gap-6 md:justify-center md:gap-10"
             >
-                <div class="relative w-full">
-                    <div
-                        class="before:bg-gray-dark flex aspect-square flex-col justify-center rounded-2xl before:absolute before:inset-0 before:blur-xl"
-                    >
-                        <div
-                            class="relative z-10 text-center text-6xl select-none"
-                        >
-                            ?
-                        </div>
-                    </div>
+                <div class="grow-0 basis-36">
+                    <Image src={envyTechLogo} alt="EnvyTech" class="w-full" />
                 </div>
-                <div class="relative w-full">
-                    <div
-                        class="before:bg-gray-dark flex aspect-square flex-col justify-center rounded-2xl before:absolute before:inset-0 before:blur-xl"
-                    >
-                        <div
-                            class="relative z-10 text-center text-6xl select-none"
-                        >
-                            ?
-                        </div>
-                    </div>
+                <div class="grow-0 basis-96">
+                    <Image
+                        src={darkprojectLogo}
+                        alt="Dark Project"
+                        class="w-full invert"
+                    />
                 </div>
-                <div class="relative w-full">
-                    <div
-                        class="before:bg-gray-dark flex aspect-square flex-col justify-center rounded-2xl before:absolute before:inset-0 before:blur-xl"
-                    >
-                        <div
-                            class="relative z-10 text-center text-6xl select-none"
-                        >
-                            ?
-                        </div>
-                    </div>
+                <div class="grow-0 basis-72">
+                    <Image
+                        src={genesisLogo}
+                        alt="Genesis"
+                        class="w-full object-contain"
+                    />
                 </div>
-                <div class="relative w-full">
-                    <div
-                        class="before:bg-gray-dark flex aspect-square flex-col justify-center rounded-2xl before:absolute before:inset-0 before:blur-xl"
-                    >
-                        <div
-                            class="relative z-10 text-center text-6xl select-none"
-                        >
-                            ?
-                        </div>
-                    </div>
+                <div class="grow-0 basis-72">
+                    <Image
+                        src={gloriousLogo}
+                        alt="Glorious"
+                        class="w-full object-contain"
+                    />
+                </div>
+                <div class="grow-0 basis-64">
+                    <Image
+                        src={marvoLogo}
+                        alt="Marvo"
+                        class="w-full object-contain"
+                    />
+                </div>
+                <div class="grow-0 basis-64">
+                    <Image
+                        src={lamzuLogo}
+                        alt="Lamzu"
+                        class="w-full object-contain"
+                    />
+                </div>
+                <div class="grow-0 basis-48">
+                    <Image
+                        src={redragonLogo}
+                        alt="Redragon"
+                        class="w-full object-contain"
+                    />
+                </div>
+                <div class="grow-0 basis-72">
+                    <Image
+                        src={keychronLogo}
+                        alt="Keychron"
+                        class="w-full object-contain"
+                    />
+                </div>
+                <div class="grow-0 basis-64">
+                    <Image
+                        src={mchoseLogo}
+                        alt="MCHOSE"
+                        class="w-full object-contain"
+                    />
                 </div>
             </div>
         </RoundedContainer>
@@ -179,7 +204,7 @@ import RoundedContainer from '@components/RoundedContainer.astro'
                     Napisz do nas na
                     <a
                         href="mailto:wspolpraca@jbwk.pl"
-                        class="bg-red px-2 py-1 text-white underline brightness-100 transition hover:brightness-75"
+                        class="bg-red px-2 py-1 text-nowrap text-white underline brightness-100 transition hover:brightness-75"
                         >wspolpraca@jbwk.pl</a
                     >
                     i wystaw się na JBWK Meet 2025!
@@ -206,7 +231,7 @@ import RoundedContainer from '@components/RoundedContainer.astro'
                     przesłać mailowo na adres
                     <a
                         href="mailto:rejestracja@jbwk.pl"
-                        class="bg-red px-2 py-1 text-white underline brightness-100 transition hover:brightness-75"
+                        class="bg-red px-2 py-1 text-nowrap text-white underline brightness-100 transition hover:brightness-75"
                     >
                         rejestracja@jbwk.pl
                     </a>
