@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+interface Props {
+    imagePath: string
+    imageDir: string
+}
+
+const { imagePath, imageDir } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    'src/images/gallery/**/*.{jpeg,jpg,png,gif,webp}'
+)
+
+if (!images[imagePath])
+    throw new Error(
+        `"${imagePath}" does not exist in glob: "src/images/gallery/**/*.{jpeg,jpg,png,gif,webp}"`
+    )
+
+const image = (await images[imagePath]()).default
+const canonicalURL = new URL(image.src, Astro.url)
+---
+
+<a
+    href={canonicalURL}
+    data-pswp-width={image.width}
+    data-pswp-height={image.height}
+    target="_blank"
+    class="w-auto grow"
+>
+    <Image
+        src={image}
+        alt="replace"
+        class="max-h-[25vh] w-full rounded-2xl object-cover object-center"
+        loading="lazy"
+        decoding="async"
+    />
+</a>

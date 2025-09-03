@@ -1,0 +1,40 @@
+---
+import ImageGalleryCard from '@components/ImageGallery/ImageGalleryCard.astro'
+
+interface Props {
+    imagesSrc: string
+}
+
+const { imagesSrc } = Astro.props
+
+const images = Object.values(
+    await import.meta.glob<{ default: ImageMetadata }>(
+        'src/images/gallery/**/*.{jpeg,jpg,png,gif,webp}'
+    )
+)
+
+const filteredImages = images
+    .map((image) => image.name)
+    .filter((image) => image.startsWith(imagesSrc))
+---
+
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox'
+    import 'photoswipe/style.css'
+
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '#gallery',
+        children: 'a',
+        pswpModule: () => import('photoswipe'),
+        loop: false,
+    })
+    lightbox.init()
+</script>
+
+<div id="gallery" class="flex flex-wrap justify-stretch gap-8">
+    {
+        filteredImages.map((image: string) => (
+            <ImageGalleryCard imagePath={image} imageDir={imagesSrc} />
+        ))
+    }
+</div>
