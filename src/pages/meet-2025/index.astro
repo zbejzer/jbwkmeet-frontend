@@ -25,15 +25,12 @@ import SectionSeparator from '@components/SectionSeparator.astro'
 import TextContainer from '@components/TextContainer.astro'
 import Button from '@components/Button.astro'
 import RoundedContainer from '@components/RoundedContainer.astro'
+import TopBaner from '@components/TopBaner.astro'
 ---
 
 <MainLayout>
     <HederMeet />
-    <Image
-        src={bgPic1}
-        alt=""
-        class="max-h-[45vh] w-full object-cover object-center"
-    />
+    <TopBaner imageUrl={bgPic1} />
     <section>
         <SectionSeparator> Witamy Warszawo! </SectionSeparator>
         <div class="my-14">

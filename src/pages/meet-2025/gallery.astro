@@ -5,22 +5,16 @@ import MainLayout from '@layouts/MainLayout.astro'
 import HederMeet from '@components/HeaderMeet.astro'
 import ImageGallery from '@components/ImageGallery/ImageGallery.astro'
 import SectionSeparator from '@components/SectionSeparator.astro'
+import TopBaner from '@components/TopBaner.astro'
 
 import bgPic1 from '@assets/meet-2025/gallery-bg-1.jpg'
 ---
 
 <MainLayout>
     <HederMeet />
-    <Image
-        src={bgPic1}
-        alt=""
-        class="max-h-[35vh] w-full object-cover object-center"
-        loading="eager"
-        decoding="sync"
-        fetchpriority="high"
-    />
+    <TopBaner imageUrl={bgPic1} />
     <SectionSeparator> Galeria zdjęć JBWK Meet 2025 </SectionSeparator>
     <div class="my-8">
-        <ImageGallery imagesSrc="/src/images/gallery/jbwk-meet-2025/" />
+        <ImageGallery imagesSrc="/src/assets/gallery/jbwk-meet-2025/" />
     </div>
 </MainLayout>

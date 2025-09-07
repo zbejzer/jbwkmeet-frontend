@@ -7,6 +7,7 @@ import BanerOverlay from '@components/BanerOverlay.astro'
 import SectionSeparator from '@components/SectionSeparator.astro'
 import TextContainer from '@components/TextContainer.astro'
 import Button from '@components/Button.astro'
+import TopBaner from '@components/TopBaner.astro'
 
 import bgPic1 from '@assets/index/bg-pic-1.webp'
 import bgPic2 from '@assets/index/bg-pic-2.webp'
@@ -22,11 +23,7 @@ import typebuildersLogo from '@assets/index/logo-typebuilders.svg'
 
 <MainLayout>
     <Header />
-    <Image
-        src={bgPic1}
-        alt=""
-        class="h-[33vh] w-full object-cover object-center"
-    />
+    <TopBaner imageUrl={bgPic1} />
     <section>
         <SectionSeparator> O co tutaj chodzi? </SectionSeparator>
         <div class="my-14">

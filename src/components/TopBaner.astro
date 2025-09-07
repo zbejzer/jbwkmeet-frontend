@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+interface Props {
+    imageUrl: string | ImageMetadata
+}
+
+const { imageUrl } = Astro.props
+---
+
+<Image
+    src={imageUrl}
+    alt=""
+    class="max-h-[35vh] w-full object-cover object-center"
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+/>

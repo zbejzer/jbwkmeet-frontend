@@ -4,13 +4,12 @@ import { Image } from 'astro:assets'
 
 interface Props {
     imagePath: string
-    imageDir: string
 }
 
-const { imagePath, imageDir } = Astro.props
+const { imagePath } = Astro.props
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    'src/images/gallery/**/*.{jpeg,jpg,png,gif,webp}'
+    'src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp}'
 )
 
 if (!images[imagePath])
@@ -18,7 +17,16 @@ if (!images[imagePath])
         `"${imagePath}" does not exist in glob: "src/images/gallery/**/*.{jpeg,jpg,png,gif,webp}"`
     )
 
+const imageThumbnailPath = imagePath
+    .substring(0, imagePath.lastIndexOf('.'))
+    .concat('_thumbnail', '.jpg')
+
 const image = (await images[imagePath]()).default
+const imageThumbnail = (await images[imageThumbnailPath]()).default
+const altText = imageThumbnailPath.substring(
+    imageThumbnailPath.lastIndexOf('/') + 1
+)
+
 const canonicalURL = new URL(image.src, Astro.url)
 ---
 
@@ -30,8 +38,8 @@ const canonicalURL = new URL(image.src, Astro.url)
     class="w-auto grow"
 >
     <Image
-        src={image}
-        alt="replace"
+        src={imageThumbnail}
+        alt={altText}
         class="max-h-[25vh] w-full rounded-2xl object-cover object-center"
         loading="lazy"
         decoding="async"
