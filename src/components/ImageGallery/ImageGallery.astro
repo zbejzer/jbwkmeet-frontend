@@ -35,7 +35,10 @@ const filteredImages = images
     lightbox.init()
 </script>
 
-<div id="gallery" class="flex flex-wrap justify-stretch gap-8">
+<div
+    id="gallery"
+    class="3xl:max-w-[120rem] mx-auto flex flex-wrap justify-stretch gap-8 px-8"
+>
     {
         filteredImages.map((image: string) => (
             <ImageGalleryCard imagePath={image} />
